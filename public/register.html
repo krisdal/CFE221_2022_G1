@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+   <link rel="stylesheet" href="registerstyle.css">
+   <link rel="icon" href="img/coin-794.png">
+</head>
+
+ <!-- Header -->
+ <header class="header">
+    <a href="index.html" class="logo">Coin X Change</a>
+    <div class="header-right">
+        <a href="login.html" id="loginButton">Login</a>
+    </div>
+</header>
+<body>
+    <div class="wrapper">
+        <main class="main-content">
+            <section class="main-section">
+                <h2 class="section-title">Register</h2>
+                <form class="register-form" action="/signup" method="post">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required><br><br>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required><br><br>
+                    <input type="submit" value="Register" class="submit-btn">
+                </form>
+            </section>
+        </main>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const signupForm = document.querySelector('.register-form');
+  
+      signupForm.addEventListener('submit', async function (event) {
+        event.preventDefault();
+  
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+  
+        // Send registration data to server
+        const response = await fetch('/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username, password }),
+        });
+  
+        const data = await response.json();
+  
+        if (data.success) {
+          // Redirect to login.html after successful registration
+          window.location.href = data.redirect;
+        } else {
+          // Handle registration error
+          console.error(data.error);
+        }
+      });
+    });
+  </script>
+  
+  
+</body>
+</html>
