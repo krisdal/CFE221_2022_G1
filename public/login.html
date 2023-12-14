@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+<link rel="stylesheet" href="loginstyle.css">
+<link rel="icon" href="img/coin-794.png">
+</head>
+
+<header class="header">
+    <a href="index.html" class="logo">Coin X Change</a>
+    <div class="header-right">
+        <a href="register.html" id="registerButton">Sign up</a>
+    </div>
+</header>
+<body>
+    <div class="wrapper">
+        <main class="main-content">
+            <section class="main-section">
+                <h2 class="section-title">Login</h2>
+                <form class="login-form" action="/login" method="post">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required><br><br>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required><br><br>
+                    <input type="submit" value="Login" class="submit-btn">
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const loginForm = document.querySelector('.login-form');
+      
+          loginForm.addEventListener('submit', async function (event) {
+            event.preventDefault();
+      
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+      
+            // Send login data to server
+            const response = await fetch('/login', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ username, password }),
+            });
+      
+            const data = await response.json();
+      
+            if (data.success) {
+              // Redirect to the home page on localhost:8000 after successful login
+              window.location.href = 'http://localhost:8000/logout.html';
+            } else {
+              // Handle login error
+              console.error(data.error);
+            }
+          });
+        });
+    </script>
+</body>
+</html>

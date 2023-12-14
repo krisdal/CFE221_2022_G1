@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin X Change</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="img/coin-794.png">
+
+</head>
+<body style="background-color:rgb(255, 255, 255);">
+
+<div class="header">
+    <div class="containerpage">
+        <div class="navbar">
+            <a href="logout.html" class="logo"> Coin X Change </a>
+            <nav>
+                <ul>
+                    <li><a href="#convertersection">Converter & Coin Change</a></li>
+                    <li><a href="#liveratesection">Live Rates</a></li>
+                </ul>        
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <h1>Let's exchange<br>your money!</h1>
+                <p>Currency converter<br>Coin change using Greedy Algorithm<br>Live Rates</p>
+                <a href="index.html" class="logout-btn"> Log out </a>
+
+            </div>
+        
+            <div class="col-2">
+                <img src="img/money-PNG.png">
+            </div>
+        </div>   
+    </div>
+</div>
+
+
+
+</body>
+</html>
+
+    
+
+    <!-- Currency converter and Coin Change -->
+    <div class="converter"id="convertersection">
+        <h3>Converter & Coin Change</h3>
+    </div>
+    
+<div class="forms-container" >
+    <div class="container">
+        <h2>Currency Converter</h2>
+        <form>
+            <div class="amount">
+                <p>Amount</p>
+                <input type="text" value="1">
+            </div>
+            <div class="convert-box">
+                <div class="from">
+                    <p>From</p>
+                    <div class="select-input">
+                        <img src="https://flagcdn.com/48x36/us.png">
+                        <select></select>
+                    </div>
+                </div>
+                <div class="reverse"><i class="fas fa-exchange-alt"></i></div>
+                <div class="to">
+                    <p>To</p>
+                    <div class="select-input">
+                        <img src="https://flagcdn.com/48x36/gb.png">
+                        <select></select>
+                    </div>
+                </div>
+                <div class="result"></div>
+                <button>Convert</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Coin Change -->
+    <div class="container">
+        <h2>Coin Change</h2>
+        <div class="col-lg-8 col-12 mx-auto">
+            <div class="exchange-form">
+                <label for="inputAmount">Enter Amount</label>
+                <input type="number" id="inputAmount" placeholder="Enter amount...">
+                <label for="currencySelect">Select Currency</label>
+                <select id="currencySelect">
+                    <option value="thb">Thai Baht (THB)</option>
+                    <option value="jpy">Japanese Yen (JPY)</option>
+                    <option value="krw">Korean Won (KRW)</option>
+                </select>
+                <button onclick="calculateExchange()">Calculate Exchange</button>
+                <p id="result"></p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="liverate"id="liveratesection">
+        <h2> Live Rates </h2>
+    <iframe src="https://www.widgets.investing.com/live-currency-cross-rates?theme=darkTheme&hideTitle=true&roundedCorners=true"
+    width="1400" 
+    height="400" 
+    frameborder="0" 
+    allowtransparency="true" 
+    marginwidth="20" 
+    marginheight="20">
+        
+    </iframe>
+    </div>
+
+    <footer class="footer">
+        <div class="copyright">
+            &copy; 2023 SWU-CFE. All Rights Reserved.
+        </div>
+        <div class="Privacy">
+            Privacy Policy
+            Sitemap
+        </div>
+    
+        <div class="contact-info">
+            Address: 114 Soi Sukhumvit 23, Khlong Toei Nuea, Watthana, Bangkok 10110<br>
+            Phone: +1234567890<br>
+            Email: KGB@swu.ac.th
+        </div>
+
+        
+    </footer>
+
+
+</div>
+   <script src="countries.js"></script>
+   <script src="index.js"></script>
+   <script src="script.js"></script>
+
+</body>
+</html>
